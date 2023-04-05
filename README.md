@@ -18,3 +18,5 @@
 3. total de encomendas por estado (status)
 
 ### O usuario também pode alterar o status das entregas
+
+### Lista de autores do projeto:
