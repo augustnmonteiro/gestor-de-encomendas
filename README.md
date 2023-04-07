@@ -20,3 +20,4 @@
 ### O usuario também pode alterar o status das entregas
 
 ### Lista de autores do projeto:
+Vanessa Rodrigues @vanessarlrodrigues
