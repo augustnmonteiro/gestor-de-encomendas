@@ -20,4 +20,5 @@
 ### O usuario também pode alterar o status das entregas
 
 ### Lista de autores do projeto:
+David Freitas @davidfreitas0
 Hugo Silva @hugo.silva777
