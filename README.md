@@ -21,3 +21,4 @@
 
 ### Lista de autores do projeto:
 David Freitas @davidfreitas0
+Hugo Silva @hugo.silva777
