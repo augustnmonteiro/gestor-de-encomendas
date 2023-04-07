@@ -8,7 +8,8 @@
 2. Código da encomenda
 3. Peso
 4. Prateleira
-5. Estado (Entregue, Saiu para entrega, Esperando)
+5. Estante
+6. Estado (Entregue, Saiu para entrega, Esperando)
 
 ### O usuario podera reordenar as encomendas por tamanho (SQL: ORDER BY)
 
