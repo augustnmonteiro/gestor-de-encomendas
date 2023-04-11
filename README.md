@@ -14,9 +14,9 @@
 ### O usuario podera reordenar as encomendas por tamanho (SQL: ORDER BY)
 
 ### Na tela devera mostrar também indicadores como:
-1. total de encomendas
-2. peso total de todas as encomendas (somatorio)
-3. total de encomendas por estado (status)
+1. total de encomendas `count`
+2. peso total de todas as encomendas (somatorio) `sum`
+3. total de encomendas por estado (status) `GROUP BY`
 
 ### O usuario também pode alterar o status das entregas
 
