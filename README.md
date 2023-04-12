@@ -26,3 +26,4 @@
 * Luiz Roberto git Luiz-Honorato
 * Ivina karol @ivinakarol
 * Vanessa Rodrigues @vanessarlrodrigues
+* Valderlanio Junior @valderlanioj
