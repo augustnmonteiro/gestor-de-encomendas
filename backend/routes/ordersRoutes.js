@@ -1,11 +1,35 @@
 const express = require('express');
 const router = express.Router();
 
-//Metodos (demonstração)
+//LISTAR TODOS (COM VERIFICAÇÃO SE FOI DELETADO)
 router.get('/list', (req, res) => {
-})
+    let query = "SELECT * FROM orders";
+    if (req.query.showDeleted != "1") {
+        query += ' WHERE deleted_at IS NULL';
+    }
+    req.conexao.query(query, (error, result) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.send(result);
+        }
+    });
+});
+//LISTAR POR ID (COM VERIFICAÇÃO SE FOI DELETADO)
 router.get('/list/:id', (req, res) => {
-})
+    let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
+    if (req.query.showDeleted != "1") {
+        query += ' AND deleted_at IS NULL';
+    }
+    req.conexao.query(query, (error, result) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 router.post('/post', (req, res) => {
 })
 router.put('/put/:id', (req, res) => {
