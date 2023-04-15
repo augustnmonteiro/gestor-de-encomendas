@@ -1,24 +1,22 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Form from "./pages/form/Form";
+import Navbar from "./components/header/Nav";
 import Home from "./pages/home/Home";
-import Nav from "./components/header/Nav";
-import List from "./pages/List/List";
+import AddOrder from "./pages/add-order/AddOrder";
+import ViewPackges from "./pages/view-packages/ViewPackges";
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav/>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/packages/add" element={<AddOrder />} />
+          <Route path="/view/packages" element={<ViewPackges />} />
         </Routes>
-        <Routes>
-          <Route path="/cadastro" element={<Form/>}/>
-        </Routes>
-        <Routes>
-          <Route path="/list" element={<List/>}/>
-        </Routes>
+
       </BrowserRouter>
     </div>
   );
