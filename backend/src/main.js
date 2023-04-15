@@ -3,8 +3,8 @@ const express = require('express');
 const app = express();
 app.use(express.json())
 //Routers
-const indicatorsRouter = require('../routes/indicatorsRoutes');
-const ordersRouter = require('../routes/ordersRoutes');
+const indicatorsRouter = require('./routes/indicatorsRoutes');
+const ordersRouter = require('./routes/ordersRoutes');
 //Server
 const mysql = require('mysql2');
 const port = 3001;
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
-  req.conexao = connection;
+  req.connect = connection;
   next();
 });
 

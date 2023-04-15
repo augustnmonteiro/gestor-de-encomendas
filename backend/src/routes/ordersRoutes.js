@@ -7,7 +7,7 @@ router.get('/list', (req, res) => {
     if (req.query.showDeleted != "1") {
         query += ' WHERE deleted_at IS NULL';
     }
-    req.conexao.query(query, (error, result) => {
+    req.connect.query(query, (error, result) => {
         if (error) {
             res.status(404).send(error);
         } else {
@@ -21,7 +21,7 @@ router.get('/list/:id', (req, res) => {
     if (req.query.showDeleted != "1") {
         query += ' AND deleted_at IS NULL';
     }
-    req.conexao.query(query, (error, result) => {
+    req.connect.query(query, (error, result) => {
         if (error) {
             res.status(404).send(error);
         } else {
