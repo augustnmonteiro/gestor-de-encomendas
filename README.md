@@ -21,7 +21,6 @@
 ### O usuario também pode alterar o status das entregas
 
 ### Lista de autores do projeto:
-Luiz Roberto git Luiz-Honorato
 * David Freitas @davidfreitas0
 * Hugo Silva @hugo.silva777
 * Luiz Roberto git Luiz-Honorato
