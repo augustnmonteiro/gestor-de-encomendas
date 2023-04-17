@@ -1,7 +1,7 @@
 
 
 function AddOrder() {
-    ;
+    
     return (
         <div>
             <h1>Página de cadastro</h1>

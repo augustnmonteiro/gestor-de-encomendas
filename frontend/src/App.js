@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/packages/add" element={<AddOrder />} />
-          <Route path="/view/packages" element={<ViewPackges />} />
+          <Route path="/packages" element={<ViewPackges />} />
         </Routes>
 
       </BrowserRouter>

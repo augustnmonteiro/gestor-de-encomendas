@@ -12,7 +12,7 @@ function Navbar() {
                         <Link to="/packages/add">Cadastro</Link>
                     </li>
                     <li>
-                        <Link to="/view/packages">Pesquisar</Link>
+                        <Link to="/packages">Pesquisar</Link>
                     </li>
                 </ul>
             </nav>
