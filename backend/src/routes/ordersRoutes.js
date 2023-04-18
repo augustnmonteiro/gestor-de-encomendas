@@ -19,7 +19,7 @@ router.put('/put/:id', (req, res) => {
                 if (error) {
                     res.status(500).send("SERVER ERROR");
                 } else {
-                    res.status(201).send("UPDATED");
+                    res.status(200).send("UPDATED");
                 }
             });
     } else {
