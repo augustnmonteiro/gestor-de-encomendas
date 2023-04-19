@@ -11,9 +11,10 @@ router.post('/post', (req, res) => {
 })
 
 router.put('/put/:id', (req, res) => {
-    const newstatus = req.body.status;
-    let query = `UPDATE orders SET status='${newstatus}' WHERE id='${req.params.id}'`;
-    if (newstatus) {
+    if(req.body.status == "saiu" || req.body.status == "aguardando" || req.body.status == "entregue"){
+    let newstatus = req.body.status;
+    let query = `UPDATE orders SET status='${newstatus}' WHERE id='${req.params.id}' AND  deleted_at IS NULL`;
+    
         //ATUALIZAR NO BANCO
         req.connection.query(query, (error, result) => {
                 if (error) {
@@ -23,7 +24,7 @@ router.put('/put/:id', (req, res) => {
                 }
             });
     } else {
-        res.status(400).send("BAD REQUEST");
+        res.status(400).send("NÂO EXISTE ESSE STATUS DISPONIVEL");
     }
 });
 
