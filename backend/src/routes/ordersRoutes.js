@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//Metodos (demonstração)
 router.get('/list', (req, res) => {
     let query = "SELECT * FROM orders";
     if (req.query.showDeleted != "1") {
@@ -28,6 +27,16 @@ router.get('/list/:id', (req, res) => {
         }
     });
 })
+router.get('/list/:type/:busca', (req, res) => {
+    let sql = `SELECT * FROM orders WHERE ${req.params.type} like '%${req.params.busca}%' AND  deleted_at IS NULL`
+    req.connection.query(sql, (error, result) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.send(result);
+        }
+    });
+});
 router.post('/post', (req, res) => {
 })
 router.put('/put/:id', (req, res) => {
