@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-//Metodos (demonstração)
+//LISTA TODOS
 router.get('/list', (req, res) => {
     let query = "SELECT * FROM orders";
     if (req.query.showDeleted != "1") {
@@ -15,6 +15,7 @@ router.get('/list', (req, res) => {
         }
     });
 })
+//LISTA POR ID
 router.get('/list/:id', (req, res) => {
     let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
     if (req.query.showDeleted != "1") {
@@ -28,6 +29,19 @@ router.get('/list/:id', (req, res) => {
         }
     });
 })
+//FILTRO DE PESQUISA NO BANCO
+router.get('/list/:type/:busca', (req, res) => {
+    var sql = "";
+    sql = `SELECT * FROM orders WHERE ${req.params.type} like '%${req.params.busca}%' AND  deleted_at IS NULL`
+    req.connection.query(sql, (error, result) => {
+        if (error) {
+            res.status(404).send(error);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 router.post('/post', (req, res) => {
 })
 router.put('/put/:id', (req, res) => {
