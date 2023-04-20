@@ -28,9 +28,9 @@ router.get('/list/:id', (req, res) => {
         }
     });
 });
-router.put('/put/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const newStatus = req.body.status;
-    if (newStatus == "Aguardando envio" || newStatus == "Saiu para entrega" || newStatus == "Entregue") {
+    if (newStatus == "AGUARDANDO_ENVIO" || newStatus == "SAIU_PARA_ENTREGA" || newStatus == "ENTREGUE") {
         let query = `UPDATE orders SET status='${newStatus}' WHERE id='${req.params.id}' AND  deleted_at IS NULL`;
         //ATUALIZAR NO BANCO
         req.connection.query(query, (error, result) => {
@@ -41,7 +41,7 @@ router.put('/put/:id', (req, res) => {
             }
         });
     } else {
-        res.status(400).send("NÂO EXISTE ESSE STATUS DISPONIVEL");
+        res.status(400).send("OPÇÃO DE STATUS INVÁLIDA");
     }
 });
 router.delete('/delete/:id', (req, res) => {
