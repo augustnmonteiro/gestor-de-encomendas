@@ -33,7 +33,7 @@ router.get('/list/:id', (req, res) => {
 //ROUTER PARA PESQUISAR ENCOMENDAS (searchOrders)
 
 //ROUTER PARA ORDENAR ENCOMENDAS (orderOrders)
-router.get('/list/:order', (req, res) => {
+router.get('/:order', (req, res) => {
     let query = `SELECT * FROM orders`;
     if (req.query.showDeleted != "1") {
         if(req.params.order == 'asc'){
@@ -45,11 +45,8 @@ router.get('/list/:order', (req, res) => {
     req.connection.query(query, (error, result) => {
         if (error) {
             res.status(404).send();
-            console.log(error);
         } else {
             res.send(result);
-            console.log(query);
-            c
         }
     })
 })
