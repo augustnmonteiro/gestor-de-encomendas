@@ -17,6 +17,7 @@ router.get('/list', (req, res) => {
         }
     });
 })
+
 router.get('/list/:id', (req, res) => {
     let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
     if (req.query.showDeleted != "1") {
@@ -30,21 +31,24 @@ router.get('/list/:id', (req, res) => {
         }
     });
 })
+
 //ROUTER PARA PESQUISAR ENCOMENDAS (searchOrders)
 
 //ROUTER PARA ORDENAR ENCOMENDAS (orderOrders)
-router.get('/:order', (req, res) => {
+router.get('/', (req, res) => {
     let query = `SELECT * FROM orders`;
     if (req.query.showDeleted != "1") {
-        if(req.params.order == 'asc'){
-            query += ` WHERE deleted_at IS NULL ORDER BY name ASC`
-        }else if(req.params.order == 'desc'){
-            query += ` WHERE deleted_at IS NULL ORDER BY name DESC`
-        }
+        query += ` WHERE deleted_at IS NULL`; 
+    }
+    if(req.query.order == 'asc'){
+        query += ` ORDER BY name ASC`
+    }else if(req.query.order == 'desc'){
+        query += ` ORDER BY name DESC`
     }
     req.connection.query(query, (error, result) => {
         if (error) {
             res.status(404).send();
+            console.log(query);
         } else {
             res.send(result);
         }
