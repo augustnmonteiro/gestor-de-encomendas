@@ -27,11 +27,23 @@ router.get('/list/:id', (req, res) => {
             res.send(result);
         }
     });
-})
-router.post('/post', (req, res) => {
-})
-router.put('/put/:id', (req, res) => {
-})
+});
+router.put('/:id', (req, res) => {
+    const newStatus = req.body.status;
+    if (newStatus == "WAITING_TO_BE_SENT" || newStatus == "OUT_FOR_DELIVERY" || newStatus == "DELIVERED") {
+        let query = `UPDATE orders SET status='${newStatus}' WHERE id='${req.params.id}' AND  deleted_at IS NULL`;
+        //ATUALIZAR NO BANCO
+        req.connection.query(query, (error, result) => {
+            if (error) {
+                res.status(500).send("SERVER ERROR");
+            } else {
+                res.status(200).send("UPDATED");
+            }
+        });
+    } else {
+        res.status(400).send("OPÇÃO DE STATUS INVÁLIDA");
+    }
+});
 router.delete('/delete/:id', (req, res) => {
 })
 
