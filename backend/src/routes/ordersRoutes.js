@@ -30,7 +30,7 @@ router.get('/list/:id', (req, res) => {
 });
 router.put('/:id', (req, res) => {
     const newStatus = req.body.status;
-    if (newStatus == "AGUARDANDO_ENVIO" || newStatus == "SAIU_PARA_ENTREGA" || newStatus == "ENTREGUE") {
+    if (newStatus == "WAITING_TO_BE_SENT" || newStatus == "OUT_FOR_DELIVERY" || newStatus == "DELIVERED") {
         let query = `UPDATE orders SET status='${newStatus}' WHERE id='${req.params.id}' AND  deleted_at IS NULL`;
         //ATUALIZAR NO BANCO
         req.connection.query(query, (error, result) => {
