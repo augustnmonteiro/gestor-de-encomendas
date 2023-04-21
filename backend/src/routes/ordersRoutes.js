@@ -35,13 +35,12 @@ router.delete('/delete/:id', (req, res) => {
 })
 
 //ROUTER PARA ADICIONAR ENCOMENDA (AddOrder)
-router.post('/add', (req, res) => {
+router.post('/', (req, res) => {
     const { name, cod_order, weight, height, width, depth, shelf, bookcase, status } = req.body;
     let query = `INSERT INTO orders (name, cod_order, weight, height, width, depth, shelf, bookcase, status)`;
-
     if (name !== "" && cod_order && weight > 0 && height > 0 &&
         width > 0 && depth > 0 && shelf > 0 && bookcase > 0 &&
-        (status === "Aguardando" || status === "Saiu para entrega" || status === "Entregue")) {
+        (status === "WAITING" || status === "OUT_FOR_DELIVERY" || status === "DELIVERED")) {
         query += ` VALUES ('${name}', ${cod_order}, ${weight}, ${height}, ${width},
          ${depth}, ${shelf}, ${bookcase}, '${status}')`;
 
