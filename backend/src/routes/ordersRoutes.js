@@ -1,21 +1,35 @@
 const express = require('express');
 const router = express.Router();
 
-//Metodos (demonstração)
-router.get('/list', (req, res) => {
-    let query = "SELECT * FROM orders";
-    if (req.query.showDeleted != "1") {
-        query += ' WHERE deleted_at IS NULL';
-    }
-    req.connection.query(query, (error, result) => {
-        if (error) {
-            res.status(404).send(error);
-        } else {
-            res.send(result);
+router.get('/', (req, res) => {
+    let query = "";
+    if (req.query.type && req.query.busca) {
+        if (["name", "cod_order", "weight", "shelf", "bookcase", "status"].includes(req.query.type)) {
+            query = `SELECT * FROM orders WHERE ${req.query.type} like '%${req.query.busca}%' AND  deleted_at IS NULL`
+            req.connection.query(query, (error, result) => {
+                if (error) {
+                    res.status(404).send(error);
+                    res.send("erro no connection");
+                } else {
+                    res.send(result);
+                }
+            });
         }
-    });
+    } else {
+        query = "SELECT * FROM orders";
+        if (req.query.showDeleted != "1") {
+            query += ' WHERE deleted_at IS NULL';
+        }
+        req.connection.query(query, (error, result) => {
+            if (error) {
+                res.status(404).send(error);
+            } else {
+                res.send(result);
+            }
+        });
+    }
 })
-router.get('/list/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
     if (req.query.showDeleted != "1") {
         query += ' AND deleted_at IS NULL';
