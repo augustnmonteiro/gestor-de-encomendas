@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 app.use('/orders', ordersRouter);
 app.use('/indicators', indicatorsRouter)
 
+
 app.listen(port, () => {
-    console.log("Servidor rodando!");
-  });
+  console.log("Servidor rodando!");
+});
