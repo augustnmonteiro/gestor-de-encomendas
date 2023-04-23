@@ -3,6 +3,7 @@ const router = express.Router();
 
 //ROUTER PARA ADICIONAR ENCOMENDA (AddOrder)
 
+
 router.get('/:id', (req, res) => {
     let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
     if (req.query.showDeleted != "1") {
