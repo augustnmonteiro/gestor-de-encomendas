@@ -11,7 +11,7 @@ const port = 3001;
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'vao359685',
+  password: 'root',
   database: 'gestao_de_encomendas'
 });
 
