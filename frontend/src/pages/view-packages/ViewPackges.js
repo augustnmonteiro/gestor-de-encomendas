@@ -1,16 +1,26 @@
 import './ViewPackages.css';
 import { useState, useEffect } from 'react';
+import DropdownOrder from "../../components/dropdown-order/dropdownOrder";
 
+function request(url, options) {
+  url = 'http://localhost:3001' + url;
+  return fetch(url, options);
+}
 
 function ViewPackges() {
 
   const [listOrders, setListOrders] = useState([]);
 
-
-
+  const orderList = (order) => {
+    request('/orders?order=' + order).then((response) => {
+      response.json().then((orders) => {
+        setListOrders(orders);
+      });
+    });
+  };
 
   const loadOrders = () => {
-    fetch('http://localhost:3001/orders/list').then((response) => {
+    request('/orders/').then((response) => {
       response.json().then((orders) => {
         setListOrders(orders);
       });
@@ -21,10 +31,11 @@ function ViewPackges() {
     loadOrders();
   }, []);
 
-
   return (
     <div className="ViewPackages">
+
       <span>Encomendas cadastradas:</span>
+      <DropdownOrder onClick={orderList} />
       <ul className="order-list">
         <table>
           <thead>
@@ -43,7 +54,7 @@ function ViewPackges() {
 
           <tbody>
             {listOrders.map((orders) => {
-             return <tr key={orders.id}>
+              return <tr key={orders.id}>
                 <td>{orders.name}</td>
                 <td>{orders.cod_order}</td>
                 <td>{orders.weight}</td>
@@ -59,7 +70,6 @@ function ViewPackges() {
         </table>
       </ul>
     </div>
-
   )
 }
 
