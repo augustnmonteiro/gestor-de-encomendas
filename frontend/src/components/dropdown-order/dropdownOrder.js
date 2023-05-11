@@ -3,7 +3,7 @@ import './dropdownOrder.css';
 
 function DropdownOrder(props) {
 
-  const [order, setOrder] = useState('Filtro');
+  const [order, setOrder] = useState('');
 
   const selectChange = (e) => {
     setOrder(e.target.value);
