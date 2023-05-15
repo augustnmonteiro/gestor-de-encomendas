@@ -1,0 +1,36 @@
+.dropdown{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.select-drop{
+    width: 30px;
+    height: 25px;
+    appearance: none;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 300ms all ease-in-out;
+}
+
+.select-drop:hover{
+    cursor: pointer;
+    background-color: rgb(212, 212, 212);
+}
+
+.select-drop option{
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    border: none;
+}   
+
+.select-drop:focus{
+    outline: none;
+    border: 1px solid #333;
+}
+
+.select-drop option:checked{
+    background-color: rgb(214, 214, 214);
+}
