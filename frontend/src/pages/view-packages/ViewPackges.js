@@ -1,5 +1,7 @@
 import './ViewPackages.css';
+import UpdatedStatus from '../../components/updateStatus/update';
 import { useState, useEffect } from 'react';
+
 
 
 function ViewPackges() {
@@ -7,10 +9,8 @@ function ViewPackges() {
   const [listOrders, setListOrders] = useState([]);
 
 
-
-
   const loadOrders = () => {
-    fetch('http://localhost:3001/orders/list').then((response) => {
+    fetch('http://localhost:3001/orders/').then((response) => {
       response.json().then((orders) => {
         setListOrders(orders);
       });
@@ -21,6 +21,17 @@ function ViewPackges() {
     loadOrders();
   }, []);
 
+  function translateStatus(status) {
+    if (status === 'WAITING_TO_BE_SENT') {
+      return 'AGUARDANDO ENVIO';
+    } else if (status === 'OUT_FOR_DELIVERY') {
+      return 'SAIU PARA ENTREGA';
+    } else if (status === 'DELIVERED') {
+      return 'ENTREGUE';
+    } else {
+      return '';
+    }
+  }
 
   return (
     <div className="ViewPackages">
@@ -32,12 +43,12 @@ function ViewPackges() {
               <th>Nome</th>
               <th>Cod order</th>
               <th>Peso </th>
-              <th> Altura</th>
+              <th>Altura</th>
               <th>Largura </th>
               <th>Profundidade </th>
               <th>Prateleira</th>
               <th>Estante </th>
-              <th> Status </th>
+              <th>Status </th>
             </tr>
           </thead>
 
@@ -52,7 +63,9 @@ function ViewPackges() {
                 <td>{orders.depth}</td>
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
-                <td>{orders.status}</td>
+                <td>
+                {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} />
+                </td>
               </tr>
             })}
           </tbody>
