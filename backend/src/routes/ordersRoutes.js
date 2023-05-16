@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//ROUTER PARA ADICIONAR ENCOMENDA (AddOrder)
-
 ////ROUTER PARA LISTAR POR ID  (listOrdersID) 
 router.get('/:id', (req, res) => {
     let query = `SELECT * FROM orders WHERE id=${req.params.id}`;
@@ -16,11 +14,6 @@ router.get('/:id', (req, res) => {
             res.send(result);
         }
     });
-})
-
-router.put('/put/:id', (req, res) => {
-})
-router.delete('/delete/:id', (req, res) => {
 })
 
 //ROUTER PARA ADICIONAR ENCOMENDA (AddOrder)
@@ -47,10 +40,8 @@ router.post('/', (req, res) => {
 
     }
 })
-//ROUTER PARA PESQUISAR ENCOMENDAS (searchOrders)
-//ROUTER PARA LISTAR ENCOMENDAS  (listOrders) 
-//ROUTER PARA ORDENAR ENCOMENDAS (orderOrders)
 
+//ROUTER PARA ORDENAR, PESQUISAR E LISTAR ENCOMENDAS
 router.get('/', (req, res) => {
     let query = `SELECT * FROM orders`;
     if (req.query.showDeleted != "1") {
@@ -110,7 +101,7 @@ router.put('/:id', (req, res) => {
             }
         });
     } else {
-        res.status(400).send(error);
+        res.status(400).send({status: 400});
     }
 });
 

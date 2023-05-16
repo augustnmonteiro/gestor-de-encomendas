@@ -1,45 +1,42 @@
 import './update.css'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Request from '../../utilities';
 
-function UpdatedStatus({ orderId, currentStatus }) {
+function UpdatedStatus({ orderId, currentStatus,loadOrders}) {
 
     const [selectedStatus, setSelectedStatus] = useState(currentStatus);
 
     function updateStatus() {
         const id = orderId;
-        const url = `http://localhost:3001/orders/${id}`;
+        const urlComplemento = `${id}`;
 
         const data = { status: selectedStatus };
         const jsonData = JSON.stringify(data);
         console.log(jsonData)
 
-        fetch(url, {
+        let url = '/orders';
+        if (urlComplemento) {
+          url = '/orders/' + urlComplemento;
+        }
+        Request(url,  {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: jsonData
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao enviar os dados.');
+            }
+            return response.json();
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao enviar os dados.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                return console.log(data);
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro:', error);
-            });
+        .then(data => {
+            loadOrders();
+            return console.log(data);
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
     };
-    //ATULIZA A PAGINA
-    function reload() {
-        window.location.reload();
-    }
-    // FUNÇÃO PARA EXECULTAR  AS 2 FUNÇÕES
-    function double(a, b) {
-        updateStatus()
-        reload();
-    }
+
     return (
         <div>
             <select id="status" name="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
@@ -49,7 +46,7 @@ function UpdatedStatus({ orderId, currentStatus }) {
                 <option value="DELIVERED">Entregue</option>
             </select>
 
-            <button onClick={double}>Atualizar</button>
+            <button onClick={updateStatus}>Atualizar</button>
 
         </div>
     )

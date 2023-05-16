@@ -4,7 +4,6 @@ import Navbar from "./components/header/Nav";
 import Home from "./pages/home/Home";
 import AddOrder from "./pages/add-order/AddOrder";
 import ViewPackges from "./pages/view-packages/ViewPackges";
-import updatedStatus from "./components/updateStatus/update";
 
 
 function App() {
