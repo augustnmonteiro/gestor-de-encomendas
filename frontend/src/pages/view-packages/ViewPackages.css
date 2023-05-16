@@ -1,1 +1,18 @@
 /* Estilização da página de listar encomendas*/
+
+
+.order-list{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.order-list table{
+    width: 400px;
+    border-collapse: collapse;
+}
+.order-list th {
+    padding: 8px;
+    background-color: rgb(87, 87, 194);
+}
+.order-list td {
+    padding: 8px;
+}
