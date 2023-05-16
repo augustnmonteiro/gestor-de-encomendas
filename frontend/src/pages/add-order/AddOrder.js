@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Request from "../../utilities";
 function AddOrder() {
     const [holder, setHolder] = useState("");
     const [code, setCode] = useState();
@@ -8,45 +9,37 @@ function AddOrder() {
     const [depth, setDepth] = useState();
     const [shelf, setShelf] = useState();
     const [bookcase, setBookCase] = useState();
-    const [status, setStatus] = useState("");
-
-    //unit of weight
-    const [unitWeight, setUnitWeight] = useState("");
-    //unit of measure height
-    const [unitHeight, setUnitHeight] = useState("");
-    //unit of measure width
-    const [unitWidth, setUnitWidth] = useState("");
-    //unit of measure depth
-    const [unitDepth, setUnitDepth] = useState("");
+    
+    const [status, setStatus] = useState("WAITING_TO_BE_SENT");
+    const [unitWeight, setUnitWeight] = useState("G");
+    const [unitHeight, setUnitHeight] = useState("cm");
+    const [unitWidth, setUnitWidth] = useState("cm");
+    const [unitDepth, setUnitDepth] = useState("cm");
 
     function isName(name) {
         return isNaN(name) && name !== "";
-
     }
 
-    function unitMeasurement(unit, value) {
+    function convertToCm(unit, value) {
         return unit === "m" ? value * 100 : value;
     }
 
     function checkCode(number) {
-
         if (String(number).length !== 0) {
             return number;
-        } else {
-            return;
-        }
+        } 
     }
 
     function registerAnOrder() {
         let nameHolder = isName(holder);
         let codOrder = checkCode(code);
         let weightInGram = unitWeight == "kg" ? weight * 1000 : weight;
-        let heightInCm = unitMeasurement(unitHeight, height);
-        let widthInCm = unitMeasurement(unitWidth, width);
-        let depthInCm = unitMeasurement(unitDepth, depth);
+        let heightInCm = convertToCm(unitHeight, height);
+        let widthInCm = convertToCm(unitWidth, width);
+        let depthInCm = convertToCm(unitDepth, depth);
         if (nameHolder && codOrder && weightInGram > 0 && heightInCm > 0 && widthInCm > 0 && depthInCm && shelf > 0 && bookcase > 0 && status) {
-            const url = 'http://localhost:3001/orders/';
-            fetch(url, {
+            const url = '/orders/';
+            const options = {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -63,8 +56,19 @@ function AddOrder() {
                     bookcase: bookcase,
                     status: status
                 })
-            }).then((res) => {
-                return res
+            };
+            Request(url, options).then((res) => {
+                console.log(`
+                    Titular: ${holder}\n
+                    codigo: ${code}\n
+                    peso: ${weightInGram}\n
+                    altura: ${heightInCm}\n
+                    largura: ${widthInCm}\n
+                    profundidade: ${depthInCm}\n
+                    prateleira: ${shelf}\n
+                    estante: ${bookcase}\n
+                    estado: ${status}\n
+                `)
             })
             setHolder("");
             setWeight("");
@@ -74,19 +78,9 @@ function AddOrder() {
             setDepth("");
             setShelf("");
             setBookCase("");
-            setStatus("");
-        } else {
-            return
         }
     }
 
-    function keyPress(e) {
-        if (e.key === "Enter") {
-            registerAnOrder()
-        } else {
-            return
-        }
-    }
     return (
         <div>
             <form onSubmit={(e) => { e.preventDefault() }}>
@@ -147,7 +141,7 @@ function AddOrder() {
                     <input type="number" value={bookcase} id="bookCase" onChange={(e) => setBookCase(e.target.value)} />
                 </div>
                 <div>
-                    <button onClick={registerAnOrder} onKeyPress={keyPress}>Cadastrar</button>
+                    <button onClick={registerAnOrder}>Cadastrar</button>
                 </div>
             </form>
         </div>
