@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
     let query = `INSERT INTO orders (name, cod_order, weight, height, width, depth, shelf, bookcase, status)`;
     if (name !== "" && cod_order && weight > 0 && height > 0 &&
         width > 0 && depth > 0 && shelf > 0 && bookcase > 0 &&
-        (status === "WAITING" || status === "OUT_FOR_DELIVERY" || status === "DELIVERED")) {
+        (status === "WAITING_TO_BE_SENT" || status === "OUT_FOR_DELIVERY" || status === "DELIVERED")) {
         query += ` VALUES ('${name}', ${cod_order}, ${weight}, ${height}, ${width},
          ${depth}, ${shelf}, ${bookcase}, '${status}')`;
 
