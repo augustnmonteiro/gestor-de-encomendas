@@ -30,7 +30,6 @@ function UpdatedStatus({ orderId, currentStatus,loadOrders}) {
         })
         .then(data => {
             loadOrders();
-            return console.log(data);
         })
         .catch(error => {
             console.error('Ocorreu um erro:', error);
