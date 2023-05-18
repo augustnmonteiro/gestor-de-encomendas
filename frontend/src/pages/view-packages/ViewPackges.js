@@ -1,11 +1,13 @@
 import './ViewPackages.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DropdownOrder from "../../components/dropdown-order/dropdownOrder";
 import Request from "../../utilities";
+import Search from '../../componenteSearch/componentSearch';
+import { UserContext } from '../../context/userContext';
 
 function ViewPackges() {
 
-  const [listOrders, setListOrders] = useState([]);
+  const {listOrders, setListOrders} = React.useContext(UserContext);
 
   const loadOrders = (order) => {
     let url = '/orders';
@@ -26,7 +28,7 @@ function ViewPackges() {
 
   return (
     <div className="ViewPackages">
-
+      <Search />
       <span>Encomendas cadastradas:</span>
       <DropdownOrder onClick={loadOrders} />
       <ul className="order-list">
