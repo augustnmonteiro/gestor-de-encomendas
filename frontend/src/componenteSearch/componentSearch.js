@@ -12,7 +12,8 @@ function Search() {
         let url = '/orders';
         if (busca.length > 0) {
             url += `?type=${type}&busca=${busca}`;
-        } Request(url)
+        } 
+        Request(url)
             .then((response) => {
                 response.json().then((orders) => {
                     setListOrders(orders);
