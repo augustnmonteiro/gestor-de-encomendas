@@ -95,13 +95,13 @@ router.put('/:id', (req, res) => {
         //ATUALIZAR NO BANCO
         req.connection.query(query, (error, result) => {
             if (error) {
-                res.status(500).send("SERVER ERROR");
+                res.status(500).send(error);
             } else {
-                res.status(200).send("UPDATED");
+                res.json({result});
             }
         });
     } else {
-        res.status(400).send("OPÇÃO DE STATUS INVÁLIDA");
+        res.status(400).send({status: 400});
     }
 });
 
