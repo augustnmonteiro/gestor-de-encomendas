@@ -1,0 +1,21 @@
+/* Variaveis contendo as cores referente a paleta de cores que podem ser utilizadas. */
+:root {
+    --bg-color: rgba(45, 125, 188, 1);
+    --primary-color: rgba(117, 212, 242, 1);
+    --secondary-color: rgba(82, 189, 242, 1);
+    --quaternary-color: rgba(0, 65, 109, 1);
+    --primary-text-color: rgb(0, 0, 0);
+    --secondary-text-color: rgb(255, 255, 255);
+}
+
+/* Resetando o CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo cor padrão do background */
+body {
+    background-color: var(--bg-color);
+}
