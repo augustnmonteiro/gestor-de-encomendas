@@ -1,11 +1,15 @@
 import './ViewPackages.css';
-import { useState, useEffect } from 'react';
+import UpdatedStatus from '../../components/updateStatus/update';
+import React, { useState, useEffect } from 'react';
 import DropdownOrder from "../../components/dropdown-order/dropdownOrder";
 import Request from "../../utilities";
+import Search from '../../componenteSearch/componentSearch';
+import { UserContext } from '../../context/userContext';
+
 
 function ViewPackges() {
 
-  const [listOrders, setListOrders] = useState([]);
+  const {listOrders, setListOrders} = React.useContext(UserContext);
 
   const loadOrders = (order) => {
     let url = '/orders';
@@ -24,9 +28,20 @@ function ViewPackges() {
     loadOrders();
   }, []);
 
+  function translateStatus(status) {
+    switch (status){
+      case 'WAITING_TO_BE_SENT':
+        return 'AGUARDANDO ENVIO';
+      case 'OUT_FOR_DELIVERY':
+        return 'SAIU PARA ENTREGA';
+      case 'DELIVERED':
+        return 'ENTREGUE';
+    }
+  }
+
   return (
     <div className="ViewPackages">
-
+      <Search />
       <span>Encomendas cadastradas:</span>
       <DropdownOrder onClick={loadOrders} />
       <ul className="order-list">
@@ -36,12 +51,12 @@ function ViewPackges() {
               <th>Nome</th>
               <th>Cod order</th>
               <th>Peso </th>
-              <th> Altura</th>
+              <th>Altura</th>
               <th>Largura </th>
               <th>Profundidade </th>
               <th>Prateleira</th>
               <th>Estante </th>
-              <th> Status </th>
+              <th>Status </th>
             </tr>
           </thead>
 
@@ -56,7 +71,9 @@ function ViewPackges() {
                 <td>{orders.depth}</td>
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
-                <td>{orders.status}</td>
+                <td>
+                {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} loadOrders={loadOrders}/>
+                </td>
               </tr>
             })}
           </tbody>
