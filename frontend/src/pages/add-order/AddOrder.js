@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./AddOrder.css"
 function AddOrder() {
     const [holder, setHolder] = useState("");
     const [code, setCode] = useState();
@@ -88,67 +89,92 @@ function AddOrder() {
         }
     }
     return (
-        <div>
+        <div className="containerForm">
             <form onSubmit={(e) => { e.preventDefault() }}>
-                <div>
-                    <label htmlFor="holder">Titular:</label>
-                    <input type="text" id="holder" value={holder} onChange={(e) => setHolder(e.target.value)} />
+                <div className="containerGroup>">
+                    <div className="inputGroup">
+                        <div className="inputForm">
+                            <label htmlFor="holder">Titular:</label>
+                            <input type="text" id="holder" value={holder} onChange={(e) => setHolder(e.target.value)} />
+                        </div>
+
+                        <div className="inputForm">
+                            <label htmlFor="code">Código:</label>
+                            <input type="number" value={code} id="code" onChange={(e) => setCode(e.target.value)} />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="code">Código:</label>
-                    <input type="number" value={code} id="code" onChange={(e) => setCode(e.target.value)} />
+
+                <div className="containerGroup">
+                    <div className="inputGroup">
+                        <div className="inputForm">
+                            <label htmlFor="weight">Peso:</label>
+                            <input type="number" value={weight} id="weight" onChange={(e) => setWeight(e.target.value)} />
+                            <select value={unitWeight} onChange={(e) => setUnitWeight(e.target.value)}>
+                                <option value="g">G</option>
+                                <option value="kg">Kg</option>
+                            </select>
+                        </div>
+                        <div className="inputForm">
+                            <label htmlFor="height">Altura:</label>
+                            <input type="number" value={height} id="height" onChange={(e) => setHeight(e.target.value)} />
+                            <select value={unitHeight} onChange={(e) => setUnitHeight(e.target.value)}>
+                                <option value="cm">Cm</option>
+                                <option value="m">m</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="inputGroup">
+                        <div className="inputForm">
+                            <label htmlFor="width">Largura:</label>
+                            <input type="number" value={width} id="width" onChange={(e) => setWidth(e.target.value)} />
+                            <select value={unitWidth} onChange={(e) => setUnitWidth(e.target.value)}>
+                                <option value="cm">Cm</option>
+                                <option value="m">m</option>
+                            </select>
+                        </div>
+                        <div className="inputForm">
+                            <label htmlFor="depth">Profundidade:</label>
+                            <input type="number" value={depth} id="depth" onChange={(e) => setDepth(e.target.value)} />
+                            <select value={unitDepth} onChange={(e) => setUnitDepth(e.target.value)}>
+                                <option value="cm">Cm</option>
+                                <option value="m">m</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
-                <div>
-                    <label htmlFor="weight">Peso:</label>
-                    <input type="number" value={weight} id="weight" onChange={(e) => setWeight(e.target.value)} />
-                    <select value={unitWeight} onChange={(e) => setUnitWeight(e.target.value)}>
-                        <option value="g">G</option>
-                        <option value="kg">Kg</option>
-                    </select>
+
+                <div className="containerGroup">
+                    <div className="inputGroup">
+                        <div className="inputForm">
+                            <label htmlFor="shelf">Prateleira:</label>
+                            <input type="number" value={shelf} id="shelf" onChange={(e) => setShelf(e.target.value)} />
+                        </div>
+                        <div className="inputForm">
+                            <label htmlFor="bookCase">Estante:</label>
+                            <input type="number" value={bookcase} id="bookCase" onChange={(e) => setBookCase(e.target.value)} />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="height">Altura:</label>
-                    <input type="number" value={height} id="height" onChange={(e) => setHeight(e.target.value)} />
-                    <select value={unitHeight} onChange={(e) => setUnitHeight(e.target.value)}>
-                        <option value="cm">Cm</option>
-                        <option value="m">m</option>
-                    </select>
+
+                <div className="containerGroup">
+                    <div className="inputGroup">
+                        <div className="inputForm">
+                            <label htmlFor="status">Estado:</label>
+                            <select value={status} id="status" onChange={(e) => setStatus(e.target.value)}>
+                                <option value="WAITING_TO_BE_SENT">Aguardando envio</option>
+                                <option value="OUT_FOR_DELIVERY">Saiu para entrega</option>
+                                <option value="DELIVERED">Entregue</option>
+                            </select>
+                        </div>
+                        <div className="inputForm">
+                            <button onClick={registerAnOrder} onKeyPress={keyPress}>Cadastrar</button>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="width">Largura:</label>
-                    <input type="number" value={width} id="width" onChange={(e) => setWidth(e.target.value)} />
-                    <select value={unitWidth} onChange={(e) => setUnitWidth(e.target.value)}>
-                        <option value="cm">Cm</option>
-                        <option value="m">m</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="depth">Profundidade:</label>
-                    <input type="number" value={depth} id="depth" onChange={(e) => setDepth(e.target.value)} />
-                    <select value={unitDepth} onChange={(e) => setUnitDepth(e.target.value)}>
-                        <option value="cm">Cm</option>
-                        <option value="m">m</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="status">Estado:</label>
-                    <select value={status} id="status" onChange={(e) => setStatus(e.target.value)}>
-                        <option value="WAITING_TO_BE_SENT">Aguardando envio</option>
-                        <option value="OUT_FOR_DELIVERY">Saiu para entrega</option>
-                        <option value="DELIVERED">Entregue</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="shelf">Prateleira:</label>
-                    <input type="number" value={shelf} id="shelf" onChange={(e) => setShelf(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="bookCase">Estante:</label>
-                    <input type="number" value={bookcase} id="bookCase" onChange={(e) => setBookCase(e.target.value)} />
-                </div>
-                <div>
-                    <button onClick={registerAnOrder} onKeyPress={keyPress}>Cadastrar</button>
-                </div>
+
             </form>
         </div>
     )

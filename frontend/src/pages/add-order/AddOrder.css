@@ -1,1 +1,64 @@
-/* Estilização do formulario de cadastro*/
+.containerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 573px;
+    padding: 2px 0px;
+    background-color: rgba(45, 125, 188, 1);
+}
+
+.containerForm form {
+    width: 650px;
+    padding: 5px;
+    background-color: rgba(82, 189, 242, 1);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
+}
+
+.containerForm .inputForm {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+}
+
+.inputForm input {
+    width: 250px;
+    height: 22px;
+    padding: 2px;
+    border: 1px solid rgba(82, 189, 242, 1);
+    border-radius: 5px;
+    background-color: rgb(221, 225, 230);
+}
+
+.inputForm select {
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 20px;
+    text-align: center;
+    background-color:  rgb(221, 225, 230);
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    padding: 5px;
+}
+
+.inputForm #status {
+    height: 30px;
+}
+
+.containerForm button {
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:  rgba(45, 125, 188, 1);
+    margin-top: 25px;
+    margin-right: 28px;
+    padding: 5px;
+}
