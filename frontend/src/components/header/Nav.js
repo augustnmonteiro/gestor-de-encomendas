@@ -16,7 +16,7 @@ function Navbar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/packages">Ver Encomendas</Link>
+                        <Link to="/packages">Encomendas</Link>
                     </li>
                     <li>
                         <Link to="/packages/add">Cadastrar Encomenda</Link>
