@@ -140,7 +140,7 @@ function AddOrder() {
                     <input type="number" value={bookcase} id="bookCase" onChange={(e) => setBookCase(e.target.value)} />
                 </div>
                 <div>
-                    <button onClick={registerAnOrder} onKeyPress={keyPress}>Cadastrar</button>
+                    <button onClick={registerAnOrder}>Cadastrar</button>
                 </div>
 
             </form>

@@ -9,10 +9,10 @@ const ordersRouter = require('./routes/ordersRoutes');
 const mysql = require('mysql2');
 const port = 3001;
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'localhost',
   user: 'root',
-  password: 'root',
-  database: 'gestao_de_encomendas'
+  password: 'L128738r%',
+  database: 'gestor_encomenda'
 });
 
 app.use((req, res, next) => {
