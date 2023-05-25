@@ -72,7 +72,7 @@ function ViewPackges() {
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
                 <td>
-                {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} loadOrders={loadOrders}/>
+                  <UpdatedStatus orderId={orders.id} currentStatus={orders.status}/>
                 </td>
               </tr>
             })}
