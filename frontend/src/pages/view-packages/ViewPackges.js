@@ -9,14 +9,14 @@ import { UserContext } from '../../context/userContext';
 
 function ViewPackges() {
 
-  const {listOrders, setListOrders} = React.useContext(UserContext);
+  const { listOrders, setListOrders } = React.useContext(UserContext);
 
   const loadOrders = (order) => {
     let url = '/orders';
     if (order) {
       url = '/orders?order=' + order;
     }
-    
+
     Request(url).then((response) => {
       response.json().then((orders) => {
         setListOrders(orders);
@@ -29,7 +29,7 @@ function ViewPackges() {
   }, []);
 
   function translateStatus(status) {
-    switch (status){
+    switch (status) {
       case 'WAITING_TO_BE_SENT':
         return 'AGUARDANDO ENVIO';
       case 'OUT_FOR_DELIVERY':
@@ -42,11 +42,10 @@ function ViewPackges() {
   return (
     <div className="ViewPackages">
       <Search />
-      <span>Encomendas cadastradas:</span>
       <DropdownOrder onClick={loadOrders} />
-      <ul className="order-list">
+      <div className="order-list">
         <table>
-          <thead>
+          <thead className="thead-table">
             <tr>
               <th>Nome</th>
               <th>Cod order</th>
@@ -72,13 +71,13 @@ function ViewPackges() {
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
                 <td>
-                {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} loadOrders={loadOrders}/>
+                  {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} loadOrders={loadOrders} />
                 </td>
               </tr>
             })}
           </tbody>
         </table>
-      </ul>
+      </div>
     </div>
   )
 }
