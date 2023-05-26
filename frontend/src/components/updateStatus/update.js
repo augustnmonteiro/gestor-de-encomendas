@@ -38,14 +38,14 @@ function UpdatedStatus({ orderId, currentStatus,loadOrders}) {
 
     return (
         <div>
-            <select id="status" name="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+            <select className='select'  id="status" name="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
                 <option value="">Selecione o novo status</option>
                 <option value="WAITING_TO_BE_SENT">Aguardando envio</option>
                 <option value="OUT_FOR_DELIVERY">Saiu para entrega</option>
                 <option value="DELIVERED">Entregue</option>
             </select>
 
-            <button onClick={updateStatus}>Atualizar</button>
+            <button className='button' onClick={updateStatus}>Atualizar</button>
 
         </div>
     )
