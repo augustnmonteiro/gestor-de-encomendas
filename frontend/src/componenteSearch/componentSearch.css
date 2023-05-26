@@ -1,0 +1,113 @@
+.search-input::-webkit-input-placeholder, button {
+ -webkit-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
+}
+.search-input, .status {
+  margin: 0px 0px;
+  width: 207px;
+  display: block;
+  border: none;
+  padding: 9.2px 0;
+  border-bottom: solid 1px #2CB8FF;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #2CB8FF 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #2CB8FF 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.search-input, .status::placeholder {
+    color: rgba(255, 255, 255, 0.411);
+  }
+.search-input, .status:focus{
+ box-shadow: none;
+ outline: none;
+}
+.search-input::placeholder{
+  color: #ffffff77;
+}
+.search-input, .status{
+  color: #fff;
+  margin-top: -34px;
+  margin-left: 230px;
+}
+
+
+#select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.label[for=search-form] {
+  position: relative;
+  display: block;
+  width: 207px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.label[for=search-form]::after {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  top: 1px;
+  width: 18px;
+  height: 36px;
+  display: block;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAgMAAAABCpX7AAAACVBMVEUAAAAsuP8suP899h0QAAAAAnRSTlMAoKBFbtAAAAAcSURBVAjXY8haNYFBapUDA9tKBgbGJQwMDAEMADbjBE1jRaTxAAAAAElFTkSuQmCC') no-repeat center center;
+  pointer-events: none;
+}
+
+.label[for=search-form] select {
+  color: #fff;
+  border: 0px;
+  border-bottom: 1px solid #2CB8FF;
+  background: transparent;
+  padding: 9px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.label[for=search-form] select:hover {
+  border-bottom: 2px solid #2CB8FF;
+}
+
+.label[for=search-form] select::-ms-expand {
+    display: none;
+}
+
+.label[for=search-form] :-moz-any(select) {
+  width: 110%;
+}
+
+.label[for=search-form].ie9 select {
+  width: 110%;
+}
+
+.label[for=search-form] select:focus {
+  outline: 0px dotted #A9A9A9;
+}
+
+.opcoes option {
+    background-color: black;
+    color: #fff;
+}
+.status option {
+    background-color: black;
+    color: #fff;
+}
+.status{
+  margin-top: -36px;
+}
+.span{
+  color: #fff;
+}
+.icon{
+  color: #fff;
+  width: 25px;
+  margin-bottom: -5px;
+}
