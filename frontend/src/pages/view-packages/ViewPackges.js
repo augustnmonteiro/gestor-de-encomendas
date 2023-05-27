@@ -28,17 +28,6 @@ function ViewPackges() {
     loadOrders();
   }, []);
 
-  function translateStatus(status) {
-    switch (status) {
-      case 'WAITING_TO_BE_SENT':
-        return 'AGUARDANDO ENVIO';
-      case 'OUT_FOR_DELIVERY':
-        return 'SAIU PARA ENTREGA';
-      case 'DELIVERED':
-        return 'ENTREGUE';
-    }
-  }
-
   return (
     <div className="ViewPackages">
       <Search />
@@ -71,7 +60,7 @@ function ViewPackges() {
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
                 <td>
-                  {translateStatus(orders.status)}<UpdatedStatus orderId={orders.id} loadOrders={loadOrders} />
+               <UpdatedStatus orderId={orders.id} currentStatus={orders.status}/>
                 </td>
               </tr>
             })}
