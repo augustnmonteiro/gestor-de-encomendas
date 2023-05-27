@@ -1,1 +1,108 @@
-/* Estilização do formulario de cadastro*/
+.containerForm {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm form {
+    width: 600px;
+    padding: 10px;
+    background-color: rgba(117, 212, 242, 1);
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px rgba(0, 65, 109, 1);
+}
+
+.inputGroup {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+}
+
+.inputForm label {
+    padding: 3px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 7, 12);
+}
+
+.inputForm input {
+    width: 250px;
+    height: 25px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.inputForm select {
+    height: 22px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.inputForm input, select {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(243, 235, 235);
+    font-family: Helvetica;
+}
+
+.inputForm select {
+    margin: 5px 0;
+}
+
+.inputForm #status {
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+    margin: 0px 0px;
+}
+
+.inputForm button {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 65, 109, 1);
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 550px) {
+    .containerForm {
+        height: 100%;
+        width: 100%;
+        
+    }
+    .containerForm form {
+        margin: 20px 50px;
+    }
+    .inputGroup {
+        display: block;
+        margin-left: 10%;
+    }
+    .inputForm {
+        padding: 3px;
+    }
+    .inputForm button {
+        margin-left: 20px;
+    }
+    .inputForm select {
+        width: 250px;
+    }
+    .inputForm #status {
+        width: 250px;
+        height: 25px;
+    }
+}

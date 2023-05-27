@@ -1,18 +1,61 @@
 /* Estilização da página de listar encomendas*/
 
-
-.order-list{
-    font-family: Arial, Helvetica, sans-serif;
+:root {
+    --background-color: rgba(7, 78, 126, 0.493);
+    --primary-text-color: rgba(166, 178, 187, 0.637);
 }
 
-.order-list table{
+.ViewPackages {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.order-list {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: var(--background-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px 2px rgba(83, 83, 83, 0.363);
+}
+
+.order-list table {
     width: 400px;
     border-collapse: collapse;
 }
-.order-list th {
-    padding: 8px;
-    background-color: rgb(87, 87, 194);
+
+.order-list tr {
+    border-radius: 10px;
 }
+
+.order-list th {
+    padding: 10px;
+}
+
 .order-list td {
-    padding: 8px;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid var(--primary-text-color);
+}
+
+.thead-table {
+    background-color: var(--primary-text-color);
+}
+
+.order-list th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.order-list th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.order-list td:first-child {
+    border-left: 1px solid var(--primary-text-color);
+}
+
+.order-list td:last-child {
+    border-right: 1px solid var(--primary-text-color);
 }
