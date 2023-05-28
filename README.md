@@ -1,29 +1,86 @@
-# Gestor de Encomendas
+# ***TRACKLOGISTIC***
 
-### O Usuario deve conseguir adicionar encomendas com:
-> Titular, Peso, Altura, Largura, Profundidade, Codigo da encomenda, Estado (status), Prateleira e estante
+![Página Home da aplicação](./frontend/public/pag-home.png)
+Tracklogistic é um Gestor de Encomendas desenvolvido com intuito de colocar em prática os conhecimentos adquiridos ao longo do curso de Javascript ministrado pelo Professor [Augusto Monteiro](https://github.com/augustnmonteiro).
 
-### O usuario poderá pesquisar uma encomenda por:
-1. Titular
-2. Código da encomenda
-3. Peso
-4. Prateleira
-5. Estante
-6. Estado (Entregue, Saiu para entrega, Esperando)
+## **Súmario**
+* [Instalação](#secao1)
+* [Como Usar](#secao2)
+* [Tecnologias Utilizadas](#secao3)
+* [Autores](#secao4)
+* [Agradecimentos](#secao5)
 
-### O usuario podera reordenar as encomendas por tamanho (SQL: ORDER BY)
+<a id="secao1"></a>
+## **Instalação**
+Para clonar e executar este aplicativo, você precisará do [Git](https://git-scm.com) e do [Node.js](https://nodejs.org/en/) instalados em sua máquina. Em seguida,
+* Clone o repositório
+    * no terminal, execute o comando : 
+        > `git clone https://github.com/augustnmonteiro/gestor-de-encomendas.git`
+* Instale as dependências na pasta raíz `backend` e `frontend` com o comando :
+    > `npm install`
+* Faça o Download do BD para a sua máquina local
+    > [Baixar Banco de Dados](https://drive.google.com/file/d/1ZfwUDlhFq3q8vwh-kS-y5pLZ9vGV3q4J/view?usp=sharing)
 
-### Na tela devera mostrar também indicadores como:
-1. total de encomendas `count`
-2. peso total de todas as encomendas (somatorio) `sum`
-3. total de encomendas por estado (status) `GROUP BY`
+**Para alterar as configurações do BD caso necessário, siga o passo a passo**
 
-### O usuario também pode alterar o status das entregas
+*Acesse o arquivo `main.js`*
+* backend 
+    * main.js
+        > ![Imagem das configurações do BD ](./frontend/public/connection-bd.png)
 
-### Lista de autores do projeto:
-* David Freitas @davidfreitas0
-* Hugo Silva @hugo.silva777
-* Luiz Roberto git Luiz-Honorato
-* Ivina karol @ivinakarol
-* Vanessa Rodrigues @vanessarlrodrigues
-* Valderlanio Junior @valderlanioj
+*Altere os dados necessários para utilizá-lo em sua máquina.* 
+
+**Caso seja necessário alterar a URL local para rodar o servidor, acesse o arquivo `utilities.js`.**
+
+* frontend
+    * src
+        * utilities.js
+            > ![imagem da função](./frontend/public/fn-utilities.png)
+
+*Altere os dados necessários para utiliza-lo em sua máquina.*
+
+<a id="secao2"></a>
+## **Como Usar**
+Depois de ter concluído toda a configuração inicial. Siga o passo a passo a seguir :
+
+1. Abra o terminal na pasta "backend/src". 
+* backend
+    * src
+        * main.js
+
+2. Execute o arquivo `main.js` com o comando :
+    > `node main.js`
+
+    *O servidor do backend será inicializado.*
+
+3. **Em seguida, abra outro terminal na pasta "frontend" e execute o comando :**
+    > `npm start`
+
+    *O servidor do frontend será inicializado.*
+
+***Com os 2 servidores incializados, a aplicação está pronta para ser utilizada.***
+
+<a id="secao3"></a>
+## **Tecnologias Utilizadas**
+
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [ReactJS](https://react.dev/)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+
+<a id="secao4"></a>
+## **Lista de Autores do Projeto:**
+* David Freitas [@davidfreitas0](https://github.com/DavidFreitas0)
+* Hugo Silva [@hugo.silva777](https://github.com/hugo3az)
+* Luiz Roberto [Luiz-Honorato](https://github.com/Luiz-Honorato)
+* Ivina karol [@ivinakarol](https://github.com/ivinakarol)
+* Vanessa Rodrigues [@vanessarlrodrigues](https://github.com/vanessarlrodrigues)
+* Valderlanio Junior [@valderlanioj](https://github.com/ValderlanioJ)
+
+***Projeto Orientado por : [Augusto Monteiro](https://github.com/augustnmonteiro)***
+
+<a id="secao5"></a>
+## **Agradecimentos**
+
+Em nome de todos os alunos que estiveram presentes em todas as aulas durante esses 4 meses de curso, gostaríamos de **agradecer imensamente** ao nosso Professor [Augusto Monteiro](https://github.com/augustnmonteiro) pela **oportunidade** e por toda **dedicação, esforço, paciência e aprendizado** passado a todos nós. Foi um período de muita evolução e que sem nenhuma dúvida mudou nossas vidas.

@@ -1,6 +1,6 @@
 .select {
     margin: 0px 0px;
-    width: 207px;
+    width: 140px;
     display: block;
     border: none;
     padding: 9.2px 0;
@@ -13,6 +13,7 @@
     background-size: 200px 100%;
     background-repeat: no-repeat;
     color: #fff;
+    text-align: center;
   }
 
 .select option {
@@ -25,7 +26,6 @@
     border-radius: 60px;
     width: 60%;
     height: 30px;
-    margin-left: 40px;
     margin-top: 5px;
     color: #fff;
     border: none;

@@ -30,8 +30,10 @@ function ViewPackges() {
 
   return (
     <div className="ViewPackages">
-      <Search />
-      <DropdownOrder onClick={loadOrders} />
+      <div className="container-components">
+        <Search />
+        <DropdownOrder onClick={loadOrders} />
+      </div>
       <div className="order-list">
         <table>
           <thead className="thead-table">
@@ -60,7 +62,7 @@ function ViewPackges() {
                 <td>{orders.shelf}</td>
                 <td>{orders.bookcase}</td>
                 <td>
-               <UpdatedStatus orderId={orders.id} currentStatus={orders.status}/>
+                  <UpdatedStatus orderId={orders.id} currentStatus={orders.status} />
                 </td>
               </tr>
             })}
