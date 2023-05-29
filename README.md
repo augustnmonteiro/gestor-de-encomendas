@@ -19,7 +19,8 @@ Para clonar e executar este aplicativo, você precisará do [Git](https://git-sc
 * Instale as dependências na pasta raíz `backend` e `frontend` com o comando :
     > `npm install`
 * Faça o Download do BD para a sua máquina local
-    > [Baixar Banco de Dados](https://drive.google.com/file/d/1ZfwUDlhFq3q8vwh-kS-y5pLZ9vGV3q4J/view?usp=sharing)
+    * O arquivo está na raíz do projeto :
+        > gestao_de_encomendas.sql
 
 **Para alterar as configurações do BD caso necessário, siga o passo a passo**
 
