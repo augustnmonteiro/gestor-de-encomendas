@@ -1,7 +1,7 @@
 :root {
-    --primary-color: rgba(82, 189, 242, 1);
+    --primary-color: rgba(7, 78, 126, 0.493);
     --secondary-color: rgb(255, 255, 255);
-    --tertiary-color: rgb(214, 214, 214);
+    --tertiary-color: rgba(166, 178, 187, 0.637);
 }
 
 .dropdown {
@@ -18,13 +18,15 @@
     border-radius: 5px;
     font-size: 12px;
     transition: 300ms all ease-in-out;
-    border: none;
+    border: 1px solid var(--tertiary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .select-drop:hover {
     cursor: pointer;
-    background-color: var(--primary-color);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    border: 1px solid var(--primary-color);
     color: var(--secondary-color);
 }
 
@@ -40,5 +42,5 @@
 }
 
 .select-drop option:checked {
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
 }

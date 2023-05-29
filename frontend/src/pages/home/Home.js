@@ -13,7 +13,7 @@ function Home() {
                         Tenha o controle total, rastreie e organize remessas de forma simplificada. Receba
                         atualizações em tempo real, ganhe visibilidade sobre o status de cada pacote e
                         otimize seu fluxo de trabalho. Simplifique a logística e melhore a eficiência
-                        operacional com nossa solução de gestão de encomendas projetada para atender às
+                        operacional com nossa solução de gestão de encomendas, projetada para atender às
                         necessidades das empresas. Aumente a produtividade e tenha o controle em suas mãos.
                     </p>
                     <Link to="/packages/add" >
