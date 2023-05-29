@@ -10,6 +10,9 @@ import { UserContext } from '../../context/userContext';
 function ViewPackges() {
 
   const { listOrders, setListOrders } = React.useContext(UserContext);
+  const [totalWeight, setTotalWeight] = useState("-");
+  const [totalPackages, setTotalPackages] = useState("-");
+  const [totalPackagesByStatus, setTotalPackagesByStatus] = useState([]);
 
   const loadOrders = (order) => {
     let url = '/orders';
@@ -24,12 +27,61 @@ function ViewPackges() {
     });
   };
 
+  const loadTotalWeight = () => {
+    Request('/indicators/total-weight').then((response) => {
+      response.json().then((data) => {
+        setTotalWeight(data[0].total);
+      });
+    });
+  };
+
+  const loadPackages = () => {
+    Request('/indicators/total-orders').then((response) => {
+      response.json().then((data) => {
+        setTotalPackages(data[0].total);
+      });
+    });
+  };
+
+  const loadPackagesByStatus = () => {
+    Request('/indicators/total-orders-by-status').then((response) => {
+      response.json().then((data) => {
+        setTotalPackagesByStatus(data);
+      });
+    });
+  };
+
   useEffect(() => {
     loadOrders();
+    loadTotalWeight();
+    loadPackages();
+    loadPackagesByStatus();
   }, []);
+
+  const statusToPortuguese = {
+    WAITING_TO_BE_SENT: 'Aguardando envio',
+    OUT_FOR_DELIVERY: 'Saiu para entrega',
+    DELIVERED: 'Entregue'
+  };
 
   return (
     <div className="ViewPackages">
+      <div className="indicators">
+        <div className='indicator'>
+          <span className='indicator-title'>Total Encomendas</span>
+          <span className='indicator-value'>{totalPackages}</span>
+        </div>
+        <div className='indicator'>
+          <span className='indicator-title'>Total Peso</span>
+          <span className='indicator-value'>{totalWeight}</span>
+        </div>
+        {totalPackagesByStatus.map((status) => {
+          return <div className='indicator'>
+            <span className='indicator-title'>{statusToPortuguese[status.status]}</span>
+            <span className='indicator-value'>{status.total}</span>
+          </div>;
+        })}
+      </div>
       <div className="container-components">
         <Search />
         <DropdownOrder onClick={loadOrders} />

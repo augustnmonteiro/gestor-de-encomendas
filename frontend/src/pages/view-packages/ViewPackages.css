@@ -67,3 +67,31 @@
 .order-list td:last-child {
     border-right: 1px solid var(--primary-text-color);
 }
+
+.indicators {
+    flex: 1;
+    display: flex;
+    width: 760px;
+    margin-bottom: 30px;
+}
+
+.indicators .indicator {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--background-color);;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.indicators .indicator .indicator-title {
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+.indicators .indicator .indicator-value {
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+    margin-top: 5px;
+}
